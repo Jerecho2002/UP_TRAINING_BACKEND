@@ -126,4 +126,23 @@ return [
         'table' => 'failed_jobs',
     ],
 
+    'rabbitmq' => [
+        'driver' => 'rabbitmq',
+        'host' => env('RABBITMQ_HOST', '127.0.0.1'),
+        'port' => env('RABBITMQ_PORT', 5672),
+        'user' => env('RABBITMQ_USER', 'guest'),
+        'password' => env('RABBITMQ_PASSWORD', 'guest'),
+        'vhost' => env('RABBITMQ_VHOST', '/'),
+
+        // Default queue configuration
+        'queue' => env('RABBITMQ_QUEUE', 'default'),
+
+        // Optional: configure to use AMQP exchanges for advanced routing
+        'exchange' => env('RABBITMQ_EXCHANGE', null),
+        'exchange_type' => env('RABBITMQ_EXCHANGE_TYPE', 'topic'),
+        'ssl_params' => [
+            'verify_peer' => env('RABBITMQ_VERIFY_PEER', true),
+        ],
+    ],
+
 ];
